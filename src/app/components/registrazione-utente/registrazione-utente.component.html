@@ -1,6 +1,10 @@
+
 <div class="d-flex justify-content-center align-items-center back-image">
     <mat-card class="container">
         <form [formGroup]="formRegistrazione" class="m-4">
+            <div class="d-flex my-4 justify-content-center">
+                <h1 class="text-danger fw-bolder">REGISTRAZIONE</h1>
+            </div>
             <div class="row my-4">
                 <mat-form-field class="col-6" appearance="outline">
                     <mat-label>Nome</mat-label>
@@ -27,7 +31,10 @@
             </div>
             <div class="row my-4">
                 <p-toast [showTransformOptions]="'translateY(100%)'" [showTransitionOptions]="'500ms'" [hideTransitionOptions]="'1000ms'" [showTransformOptions]="'translateX(100%)'"></p-toast>
-                <button mat-raised-button color="accent" (click)="registra()">REGISTRATI</button>
+                <div class="d-flex justify-content-end">
+                    <button mat-raised-button color="primary" routerLink="/login">Go To Login<mat-icon>arrow_back</mat-icon></button>
+                    <button mat-raised-button class="ms-3" color="accent" (click)="registra()" [disabled]="!formRegistrazione.valid">REGISTRATI</button>
+                </div>  
             </div>
         </form>
     </mat-card>

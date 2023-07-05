@@ -16,7 +16,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 @NgModule({
@@ -25,7 +25,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     TestComponent,
     RegistrazioneUtenteComponent,
     LoginComponent,
-    SidebarComponent
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
