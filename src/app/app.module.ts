@@ -17,6 +17,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { TabMenuModule } from 'primeng/tabmenu';
+import { HomeComponent } from './components/home/home.component';
+import { ButtonModule } from 'primeng/button';
+import { AvatarModule } from 'primeng/avatar';
+import { CardModule } from 'primeng/card';
 
 
 @NgModule({
@@ -25,7 +30,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     TestComponent,
     RegistrazioneUtenteComponent,
     LoginComponent,
-    NavbarComponent
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +45,11 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     MatCardModule,
     MatIconModule,
     HttpClientModule,
-    ToastModule
+    ToastModule,
+    TabMenuModule,
+    ButtonModule,
+    AvatarModule,
+    CardModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]
