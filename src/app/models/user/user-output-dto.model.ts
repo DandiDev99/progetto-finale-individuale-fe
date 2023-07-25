@@ -12,5 +12,6 @@ export interface UserOutputDto{
     votes : OutputVoteDto[],
     creationDate : string,
     lastAccess : string
-
+    active : boolean;
+    deleted : boolean;
 }

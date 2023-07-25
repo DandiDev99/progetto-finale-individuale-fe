@@ -22,6 +22,9 @@ import { HomeComponent } from './components/home/home.component';
 import { ButtonModule } from 'primeng/button';
 import { AvatarModule } from 'primeng/avatar';
 import { CardModule } from 'primeng/card';
+import { GestioneUtentiComponent } from './components/gestione-utenti/gestione-utenti.component';
+import { TableModule } from 'primeng/table';
+
 
 
 @NgModule({
@@ -31,7 +34,8 @@ import { CardModule } from 'primeng/card';
     RegistrazioneUtenteComponent,
     LoginComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    GestioneUtentiComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +53,8 @@ import { CardModule } from 'primeng/card';
     TabMenuModule,
     ButtonModule,
     AvatarModule,
-    CardModule
+    CardModule,
+    TableModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]

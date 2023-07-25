@@ -30,4 +30,24 @@ export class UserService {
     });
   }
 
+  getAll() : Observable<UserOutputDto[]>{
+    return this.httpClient.get<UserOutputDto[]>(environment.endpoint + "/user/all");
+  }
+
+  ban(id : number){
+    return this.httpClient.post(environment.endpoint + "/user/ban/" + id, null);
+  }
+
+  unban(id : number){
+    return this.httpClient.post(environment.endpoint + "/user/unban/" + id, null);
+  }
+
+  delete(id : number){
+    return this.httpClient.delete(environment.endpoint+"/user/"+id);
+  }
+
+  promote(id : number){
+    return this.httpClient.post(environment.endpoint + '/user/promote/' + id, null);
+  }
+
 }

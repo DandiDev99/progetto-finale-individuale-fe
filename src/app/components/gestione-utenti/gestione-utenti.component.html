@@ -1,0 +1,41 @@
+<p-table [value]="userList" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="caption">
+        <div class="flex align-items-center justify-content-between">
+            Gestione Utenti
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Id</th>
+            <th>Username</th>
+            <th>Nome</th>
+            <th>Cognome</th>
+            <th>Email</th>
+            <th>Data Creazione</th>
+            <th>Utimo Accesso</th>
+            <th>Staff</th>
+            <th>Attivo/Bloccato</th>
+            <th>Elimina Utente</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-user>
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.firstName }}</td>
+            <td>{{ user.lastName }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.creationDate }}</td>
+            <td>{{ user.lastAccess }}</td>
+            <td>
+                <p-button *ngIf="isStaffMember(user.roles)" styleClass="p-button-rounded" label="Membro"></p-button>
+                <p-button *ngIf="!isStaffMember(user.roles)" icon="pi pi-arrow-circle-up" styleClass="p-button-rounded p-button-success" label="Promuovi" iconPos="right" on (onClick)="promote(user.id)"></p-button>
+            </td>
+            <td>
+                <p-button *ngIf="user.active" icon="pi pi-lock-open" styleClass="p-button-rounded" (onClick)="ban(user.id)"></p-button>
+                <p-button *ngIf="!(user.active)" icon="pi pi-lock" styleClass="p-button-rounded p-button-danger" (onClick)="unban(user.id)"></p-button>
+            </td>
+            <td><p-button icon="pi pi-trash" styleClass="p-button-rounded p-button-danger" (onClick)="deleteUser(user.id)"></p-button></td>
+        </tr>
+    </ng-template>
+</p-table>
