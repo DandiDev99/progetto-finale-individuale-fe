@@ -1,46 +1,11 @@
-<div class="container-fluid">
-    <div class="back-color row d-flex justyfy-content-between">
+<div class="container-fluid ">
+    <div class="row" *ngFor="let post of posts">
         <div class="col-2"></div>
-        <p-card header="Titolo" class="col-2" subheader="Sottotitolo" [style]="{ width: '360px' }">
-            <ng-template pTemplate="header">
-                <img alt="Card" src="https://primefaces.org/cdn/primeng/images/usercard.png"/>
-            </ng-template>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
-                quas!
-            </p>
-            <ng-template pTemplate="footer">
-                <p-button label="Save" icon="pi pi-check"></p-button>
-                <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em' }"></p-button>
-            </ng-template>
-        </p-card>
-        <div class="col-1"></div>
-        <p-card header="Titolo" class="col-2" subheader="Sottotitolo" [style]="{ width: '360px' }">
-            <ng-template pTemplate="header">
-                <img alt="Card" src="https://primefaces.org/cdn/primeng/images/usercard.png" />
-            </ng-template>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
-                quas!
-            </p>
-            <ng-template pTemplate="footer">
-                <p-button label="Save" icon="pi pi-check"></p-button>
-                <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em' }"></p-button>
-            </ng-template>
-        </p-card>
-        <div class="col-1"></div>
-        <p-card header="Titolo" class="col-2" subheader="Sottotitolo" [style]="{ width: '360px' }">
-            <ng-template pTemplate="header">
-                <img alt="Card" src="https://primefaces.org/cdn/primeng/images/usercard.png" />
-            </ng-template>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
-                quas!
-            </p>
-            <ng-template pTemplate="footer">
-                <p-button label="Save" icon="pi pi-check"></p-button>
-                <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em' }"></p-button>
-            </ng-template>
+            <p-card class="col-8" [header]="post.title">
+                <div [innerHTML]="post.body"></div>
+                <div class="d-flex justify-content-end">
+                    <a [routerLink]="'/post/'+post.id">visualizza post completo</a>
+                </div>
         </p-card>
         <div class="col-2"></div>
     </div>

@@ -6,11 +6,11 @@ import { Observable } from 'rxjs';
 export class MyHttpInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if(!request.headers.get("skip")) {
-        request = request.clone({
-          headers: request.headers.set("Authorization", "Bearer " + localStorage.getItem("JWT"))
-        });
-      }
+    if(!(request.headers.get("skip"))) {
+      request = request.clone({
+        headers: request.headers.set("Authorization", "Bearer " + localStorage.getItem("JWT"))
+      });
+    }
     return next.handle(request);
   }
 }

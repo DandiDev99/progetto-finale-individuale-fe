@@ -1,0 +1,21 @@
+<div class="container">
+    <h1 class="text-center m-5 fs-1">{{ post.title }}</h1>
+    <div [innerHTML]="post.body" class="m-5"></div>
+    <div class="m-5">
+        <p-button class="m-1" *ngIf="likeFlag() != undefined && likeFlag()" icon="pi pi-thumbs-up" styleClass="p-button-rounded p-button-primary" (onClick)="deleteVote()"></p-button>   
+        <p-button class="m-1" *ngIf="likeFlag() == undefined || !(likeFlag())" icon="pi pi-thumbs-up" styleClass="p-button-rounded p-button-secondary p-button-text" (onClick)="like()"></p-button>
+        <p-button class="m-1" *ngIf="likeFlag() != undefined && !(likeFlag())" icon="pi pi-thumbs-down" styleClass="p-button-rounded p-button-danger" (onClick)="deleteVote()"></p-button>
+        <p-button class="m-1" *ngIf="likeFlag() == undefined || likeFlag()" icon="pi pi-thumbs-down" styleClass="p-button-rounded p-button-secondary p-button-text" (onClick)="dislike()"></p-button>
+    </div>
+    <div>
+        <p-card header="Commenti">
+            <p *ngFor="let comment of post.comments"><b>{{ comment.user.username }} : </b>{{ comment.content }}</p>
+            <p-card header="Commenta ">
+                <div class="d-flex" [formGroup]="formCommento" >
+                    <input type="text" class="w-75 me-3" pInputText formControlName="newComment"/>
+                    <p-button icon="pi pi-comment" class="flex-shrink-1" styleClass="p-button-rounded p-button-success" (onClick)="commenta()"></p-button>
+                </div>
+            </p-card>
+        </p-card>
+    </div>
+</div>

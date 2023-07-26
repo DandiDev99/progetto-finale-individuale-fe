@@ -4,6 +4,7 @@ import { RegistrazioneUtenteComponent } from './components/registrazione-utente/
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { GestioneUtentiComponent } from './components/gestione-utenti/gestione-utenti.component';
+import { PostViewComponent } from './components/post-view/post-view.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path : "home",
     component : HomeComponent
+  },
+  {
+    path : "post/:id",
+    component : PostViewComponent
   },
   {
     path : "gestione-utenti",

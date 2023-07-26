@@ -13,7 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { LoginComponent } from './components/login/login.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -22,8 +22,11 @@ import { HomeComponent } from './components/home/home.component';
 import { ButtonModule } from 'primeng/button';
 import { AvatarModule } from 'primeng/avatar';
 import { CardModule } from 'primeng/card';
-import { GestioneUtentiComponent } from './components/gestione-utenti/gestione-utenti.component';
 import { TableModule } from 'primeng/table';
+import { PostViewComponent } from './components/post-view/post-view.component';
+import { GestioneUtentiComponent } from './components/gestione-utenti/gestione-utenti.component';
+import { MyHttpInterceptor } from './shared/interceptor/http-interceptor';
+import { InputTextModule } from 'primeng/inputtext';
 
 
 
@@ -35,7 +38,8 @@ import { TableModule } from 'primeng/table';
     LoginComponent,
     NavbarComponent,
     HomeComponent,
-    GestioneUtentiComponent
+    GestioneUtentiComponent,
+    PostViewComponent
   ],
   imports: [
     BrowserModule,
@@ -54,9 +58,14 @@ import { TableModule } from 'primeng/table';
     ButtonModule,
     AvatarModule,
     CardModule,
-    TableModule
+    TableModule,
+    InputTextModule
   ],
-  providers: [MessageService],
+  providers: [MessageService , {
+    provide: HTTP_INTERCEPTORS,
+    useClass: MyHttpInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
