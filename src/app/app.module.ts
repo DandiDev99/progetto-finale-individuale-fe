@@ -27,6 +27,10 @@ import { PostViewComponent } from './components/post-view/post-view.component';
 import { GestioneUtentiComponent } from './components/gestione-utenti/gestione-utenti.component';
 import { MyHttpInterceptor } from './shared/interceptor/http-interceptor';
 import { InputTextModule } from 'primeng/inputtext';
+import { CreaPostComponent } from './components/crea-post/crea-post.component';
+import { EditorModule } from 'primeng/editor';
+import {MatSelectModule} from '@angular/material/select';
+import { TagModule } from 'primeng/tag';
 
 
 
@@ -39,7 +43,8 @@ import { InputTextModule } from 'primeng/inputtext';
     NavbarComponent,
     HomeComponent,
     GestioneUtentiComponent,
-    PostViewComponent
+    PostViewComponent,
+    CreaPostComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +64,10 @@ import { InputTextModule } from 'primeng/inputtext';
     AvatarModule,
     CardModule,
     TableModule,
-    InputTextModule
+    InputTextModule,
+    EditorModule,
+    MatSelectModule,
+    TagModule
   ],
   providers: [MessageService , {
     provide: HTTP_INTERCEPTORS,

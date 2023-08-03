@@ -5,6 +5,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { GestioneUtentiComponent } from './components/gestione-utenti/gestione-utenti.component';
 import { PostViewComponent } from './components/post-view/post-view.component';
+import { CreaPostComponent } from './components/crea-post/crea-post.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path : "home",
     component : HomeComponent
+  },
+  {
+    path : "new-post",
+    component : CreaPostComponent
   },
   {
     path : "post/:id",

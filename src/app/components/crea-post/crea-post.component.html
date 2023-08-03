@@ -1,0 +1,40 @@
+
+<div class="d-flex justify-content-center pt-5 back-color">
+    <p-card class="container">
+        <form [formGroup]="formPost" class="m-4">
+            <div class="row my-4">
+                <mat-form-field class="col" appearance="outline">
+                    <mat-label>Categoria</mat-label>
+                    <mat-select formControlName="category">
+                      <mat-option *ngFor="let cat of categorie" [value]="{name : cat.name}"> {{cat.name}} </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+            <div class="row my-4">
+                <mat-form-field class="col-9" appearance="outline">
+                    <mat-label>Tags</mat-label>
+                    <input class="w-100" formControlName="tags"  matInput placeholder="Se vuoi inserisci qui un tag da dare al post.">
+                </mat-form-field>
+                <div class="col-1"></div>
+                <div class="col-1"><p-button icon="pi pi-plus" styleClass="p-button-rounded" (onClick)="addTag()"></p-button></div>
+                <div class="col-1"></div>
+            </div>
+            <div *ngIf="formTags.length > 0" class="d-flex">
+                <p-tag *ngFor="let tag of formTags" icon="pi pi-tag" [value]="tag" class="m-2"><p-button icon="pi pi-times" styleClass="p-button-rounded p-button-danger" (onClick)="deltag(tag)"></p-button></p-tag>
+            </div>
+            <div class="row my-4">
+                <mat-form-field class="col" appearance="outline">
+                    <mat-label>Titolo</mat-label>
+                    <input class="w-100" formControlName="titolo"  matInput placeholder="inserisci qui il titolo.">
+                    <mat-error *ngIf="formPost.controls['titolo'].invalid">{{getRequiredErrorMessage('titolo')}}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="row my-4">
+                <p-editor formControlName="body" [style]="{ height: '320px' }"></p-editor>
+            </div> 
+            <div class="row my-4">
+                <p-button label="Invia" styleClass="p-button-rounded" (onClick)="creaPost()"></p-button>
+            </div>  
+        </form>
+    </p-card>
+</div>
